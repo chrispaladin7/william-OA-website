@@ -1,5 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
+import './LoginForm.css';
+import {
+  MDBCard,
+  MDBCardHeader,
+  MDBCardText,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -7,6 +15,8 @@ export default function LoginForm({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -22,23 +32,53 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      navigate('/');
     } catch {
       setError('Log In Failed - Try Again');
     }
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
+    <>
+      <div>
+        <MDBCard border='primary' background='link' className='text-white mb-3 bg-success p-2 text-dark bg-opacity-50'>
+          <MDBCardHeader>Login</MDBCardHeader>
+          <MDBCardText>
+            <div className="form-container">
+              <form autoComplete="off" onSubmit={handleSubmit}>
+                <MDBCardText>Email</MDBCardText>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email....."
+                  value={credentials.email}
+                  onChange={handleChange}
+                  required
+                  className="input-field"
+                />
+                <MDBCardText>Password</MDBCardText>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password....."
+                  value={credentials.password}
+                  onChange={handleChange}
+                  required
+                  className="input-field"
+                />
+                <MDBCardText className="error-message">&nbsp;{error}</MDBCardText>
+                <MDBBtn className="button-login" type="submit">
+                  LOG IN
+                </MDBBtn>
+              </form>
+              <br />
+              <MDBCardText><strong>Swipe right to Sign Up➡️</strong></MDBCardText>
+            </div>
+
+          </MDBCardText>
+        </MDBCard>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+
+    </>
   );
 }
