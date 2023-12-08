@@ -26,7 +26,7 @@ export default function NavBar({ user, setUser }) {
           <Link className="navbar" to="/login">LOGIN</Link>
         </>
       }
-      <span>Welcome</span>
+      <span></span>
     </nav>
   );
 }

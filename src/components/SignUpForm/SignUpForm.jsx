@@ -51,9 +51,6 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>
-        <MDBCard border='primary' className='text-black mb-3 bg-primary p-2 text-dark bg-opacity-50'>
-          <MDBCardHeader>Sign Up</MDBCardHeader>
-          <MDBCardText>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <MDBCardText>Name</MDBCardText>
@@ -68,11 +65,9 @@ export default class SignUpForm extends Component {
                 <MDBBtn type="submit" disabled={disable}>SIGN UP</MDBBtn>
               </form>
               <br />
-              <MDBCardText><strong>⬅️Swipe left to Login</strong></MDBCardText>
               <p className="error-message">&nbsp;{this.state.error}</p>
             </div>
-          </MDBCardText>
-        </MDBCard>
+        
       </div>
     );
   }

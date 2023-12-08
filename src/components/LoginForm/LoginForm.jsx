@@ -41,9 +41,7 @@ export default function LoginForm({ setUser }) {
   return (
     <>
       <div>
-        <MDBCard border='primary' background='link' className='text-white mb-3 bg-success p-2 text-dark bg-opacity-50'>
-          <MDBCardHeader>Login</MDBCardHeader>
-          <MDBCardText>
+    
             <div className="form-container">
               <form autoComplete="off" onSubmit={handleSubmit}>
                 <MDBCardText>Email</MDBCardText>
@@ -72,11 +70,9 @@ export default function LoginForm({ setUser }) {
                 </MDBBtn>
               </form>
               <br />
-              <MDBCardText><strong>Swipe right to Sign Up➡️</strong></MDBCardText>
             </div>
 
-          </MDBCardText>
-        </MDBCard>
+       
       </div>
 
     </>

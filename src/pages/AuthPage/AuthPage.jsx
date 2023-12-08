@@ -1,26 +1,20 @@
 import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { EffectFade } from "swiper/modules";
 
 export default function AuthPage({ setUser }) {
   return (
     <>
-      <main>
-        <div className="swiper-container">
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, EffectFade]}
-            spaceBetween={1}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            effect="Fade"
-          >
-            <SwiperSlide> <LoginForm setUser={setUser} /></SwiperSlide>
-            <SwiperSlide><SignUpForm setUser={setUser} /></SwiperSlide>
-          </Swiper>
+      <main class='d-flex align-items-center justify-content-center vh-100'>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <LoginForm setUser={setUser} />
+            </div>
+            <div class="col-md-6 mb-2">
+              <SignUpForm setUser={setUser} />
+            </div>
+          </div>
         </div>
       </main>
     </>
