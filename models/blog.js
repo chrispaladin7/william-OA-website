@@ -45,4 +45,4 @@ const blogSchema = new Schema(
 }
 )
 
-module.exports = mongoose.model("PC", blogSchema);
+module.exports = mongoose.model("blog", blogSchema);
