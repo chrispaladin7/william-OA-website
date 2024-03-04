@@ -6,7 +6,7 @@ export default function AuthPage({ setUser }) {
   return (
     <>
       <main class='d-flex align-items-center justify-content-center vh-100'>
-        <div class="container text-center">
+        <div class="container-fluid text-center">
           <div class="row">
             <div class="col-md-6 mb-2">
               <LoginForm setUser={setUser} />

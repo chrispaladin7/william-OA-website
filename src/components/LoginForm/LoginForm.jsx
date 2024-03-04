@@ -41,40 +41,38 @@ export default function LoginForm({ setUser }) {
   return (
     <>
       <div>
-    
-            <div className="form-container">
-              <form autoComplete="off" onSubmit={handleSubmit}>
-                <MDBCardText>Email</MDBCardText>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Email....."
-                  value={credentials.email}
-                  onChange={handleChange}
-                  required
-                  className="input-field"
-                />
-                <MDBCardText>Password</MDBCardText>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password....."
-                  value={credentials.password}
-                  onChange={handleChange}
-                  required
-                  className="input-field"
-                />
-                <MDBCardText className="error-message">&nbsp;{error}</MDBCardText>
-                <MDBBtn className="button-login" type="submit">
-                  LOG IN
-                </MDBBtn>
-              </form>
-              <br />
-            </div>
-
-       
+        <div className="form-container">
+          <form autoComplete="on" onSubmit={handleSubmit}>
+            <MDBCardText>Email</MDBCardText>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email....."
+              value={credentials.email}
+              onChange={handleChange}
+              required
+              className="input-field"
+              class="form-control"
+            />
+            <MDBCardText>Password</MDBCardText>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password....."
+              value={credentials.password}
+              onChange={handleChange}
+              required
+              className="input-field"
+              class="form-control"
+            />
+            <MDBCardText className="error-message">&nbsp;{error}</MDBCardText>
+            <MDBBtn className="button-login" type="submit">
+              LOG IN
+            </MDBBtn>
+          </form>
+          <br />
+        </div>
       </div>
-
     </>
   );
 }

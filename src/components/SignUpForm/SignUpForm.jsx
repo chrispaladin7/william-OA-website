@@ -50,17 +50,18 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
+      <>
       <div>
             <div className="form-container">
-              <form autoComplete="off" onSubmit={this.handleSubmit}>
+              <form autoComplete="on" onSubmit={this.handleSubmit}>
                 <MDBCardText>Name</MDBCardText>
-                <input className="input-field" placeholder='Name....' type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                <input  className="input-field" placeholder='Name....' type="text" name="name" value={this.state.name} onChange={this.handleChange} required class="form-control"/>
                 <MDBCardText>Email</MDBCardText>
-                <input className="input-field" placeholder='Email....' type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+                <input  className="input-field" placeholder='Email....' type="email" name="email" value={this.state.email} onChange={this.handleChange} required class="form-control"/>
                 <MDBCardText>Password</MDBCardText>
-                <input className="input-field" placeholder='Password....' type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+                <input  className="input-field" placeholder='Password....' type="password" name="password" value={this.state.password} onChange={this.handleChange} required class="form-control"/>
                 <MDBCardText>Confirm</MDBCardText>
-                <input className="input-field" placeholder='Confirm Password....' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+                <input  className="input-field" placeholder='Confirm Password....' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required class="form-control"/>
                 <br />
                 <MDBBtn type="submit" disabled={disable}>SIGN UP</MDBBtn>
               </form>
@@ -69,6 +70,7 @@ export default class SignUpForm extends Component {
             </div>
         
       </div>
+      </>
     );
   }
 }
